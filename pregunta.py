@@ -13,6 +13,8 @@ from datetime import datetime
 def clean_data():
     df = pd.read_csv("solicitudes_credito.csv", sep=";")
     df.drop("Unnamed: 0", axis=1, inplace=True)
+    # Eliminación de las filas nan
+    df = df.dropna()
     # Definición de las columnas tipo str
     columnasString = [
         "sexo",
